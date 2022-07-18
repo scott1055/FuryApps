@@ -25,11 +25,15 @@ async function clipCoupons() {
     var buttonsClicked = 0;
 
     for (var i = 0; i < tags.length; i++) {
-        if (tags[i].textContent.indexOf(searchText) >= 0) {
+		var buttonText = tags[i].textContent;
+        if (buttonText.indexOf(searchText) >= 0) {
             var found = tags[i];
             found.click();
             buttonsClicked++;
-        }
+			/*console.log("Button clicked: " + buttonText);*/
+        } else {
+			/*console.log("Button NOT clicked: " + buttonText);*/
+		}
     }
 
     alert(`${buttonsClicked} coupon(s) clipped`);
