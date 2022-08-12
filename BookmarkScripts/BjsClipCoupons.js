@@ -10,16 +10,18 @@ async function clipCoupons() {
     var buttonsClicked = 0;
     var loop = true;
     while (loop) {
-        var buttons = document.getElementsByClassName('btn red-btn widthHeight');
+        var buttons = document.getElementsByTagName('button');
         for (i = 0; i < buttons.length; i++) {
             let buttonText = buttons[i].innerText.toLowerCase();
             if (buttonText.includes('clip to card')) {
                 buttons[i].click();
+                buttonsClicked++;
+                await delay(randomIntFromInterval(500, 2000));
+            } else {
+                console.log(buttons[i].innerText);
             }
-            buttonsClicked++;
-            await delay(randomIntFromInterval(500, 2000));
         }
-        if (!clickButton('pageNext')) {
+        if (!clickButton('next-align')) {
             loop = false;
         }
     }
