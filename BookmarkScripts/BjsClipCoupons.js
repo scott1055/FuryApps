@@ -16,7 +16,7 @@ async function clipCoupons() {
             if (buttonText.includes('clip to card')) {
                 buttons[i].click();
                 buttonsClicked++;
-                await delay(randomIntFromInterval(500, 2000));
+                await delay(randomIntFromInterval(1000, 4000));
             } else {
                 console.log(buttons[i].innerText);
             }
